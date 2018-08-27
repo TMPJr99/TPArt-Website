@@ -2,9 +2,16 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>tp on canvas</title>
+    <link rel="stylesheet" href="https://bootswatch.com/4/simplex/bootstrap.css"/>
   </head>
   <body>
     <h1>This is the canvas page</h1>
+    <% for(let i=0; i< canvas.length; i++){ %>
+      <img src="<%= canvas[i].img_location %>">
+      <h2><%= canvas[i].genre %></h2>
+      <h2><%= canvas[i].series %></h2>
+      <h2><%= canvas[i].price %></h2>
+    <% } %>
   </body>
 </html>
