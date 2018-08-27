@@ -2,7 +2,7 @@ module.exports = {
   development: {
       client: 'pg',
       connection: {
-        database: "users",
+        database: "TPArt-Website",
         host: "localhost"
       },
       migrations: {
