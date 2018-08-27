@@ -5,6 +5,8 @@ exports.up = function(knex, Promise) {
     table.string('genre');
     table.string('series');
     table.integer('price');
+    table.string('img_location');
+    table.timestamps(true, true);
   })
 };
 
