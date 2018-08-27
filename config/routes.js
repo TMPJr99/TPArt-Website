@@ -9,7 +9,7 @@ module.exports = function(app){
   app.get('/shop', painting.shop);
   app.get('/canvas', painting.canvas);
   //ADMIN
-
+  app.get('/contact', admin.contact);
 
   //ORDER
 

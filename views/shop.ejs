@@ -1,10 +1,59 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-    <h1>This is the shop page</h1>
-  </body>
+
+<head>
+  <meta charset="utf-8">
+  <title>Shop</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.3/simplex/bootstrap.min.css">
+  <style media="screen">
+    .grid-container {
+      display: grid;
+      grid-template-columns: auto auto;
+      padding: 10px;
+      grid-column-gap: 25px;
+      grid-row-gap: 25px;
+    }
+
+    .grid-item {
+      padding: 20px;
+      font-size: 15px;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand active" href="/shop">shop</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+    <div class="collapse navbar-collapse" id="navbarColor03">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/home">home <span class="sr-only"></span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">tp on canvas</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/contact">contact</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="grid-container">
+    <% for(let i = 0; i < paintings.length; i++ ) { %>
+      <div class="grid-item">
+        <h1><%= paintings[i].genre %></h1>
+        <h2><%= paintings[i].series %></h2>
+        <img src="<%= paintings[i].img_location %>">
+        <h2>$<%= paintings[i].price %></h2>
+      </div>
+      <%}%>
+  </div>
+
+</body>
+
 </html>

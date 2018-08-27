@@ -7,7 +7,10 @@ module.exports = {
   },
 
   shop: (req, res)=>{
-    res.render('shop');
+    knex('painting')
+    .then((results)=>{
+      res.render('shop', {paintings: results});
+    })
   },
   canvas: (req, res)=>{
     res.render('tp_on_canvas');
