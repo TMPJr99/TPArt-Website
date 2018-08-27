@@ -12,6 +12,10 @@ module.exports = {
     res.render('shop');
   },
   canvas: (req, res)=>{
-    res.render('tp_on_canvas');
+    knex('painting').where('series', 'canvas')
+    .then((results)=>{
+      res.render('tp_on_canvas', {canvas: results});
+    })
+  
   }
 }
