@@ -10,7 +10,18 @@ module.exports = function(app){
   app.get('/canvas', painting.canvas);
   //ADMIN
   app.get('/contact', admin.contact);
-
+  app.get('/admin', admin.adminPg);
+  app.post('/login', admin.login);
+  app.use(authenticate);
+  app.get('/admin-home', admin.secure);
   //ORDER
 
+}
+
+function authenticate(req, res, next){
+  if(!req.session.admin_id){
+    res.redirect('/admin');
+  }else{
+    next();
+  }
 }
