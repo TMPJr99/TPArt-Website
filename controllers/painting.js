@@ -12,6 +12,12 @@ module.exports = {
     if(!req.session.cart){
       req.session.cart = [];
     }
+    if(!req.session.wishlist){
+      req.session.wishlist = [];
+    }
+    if(!req.session.total){
+      req.session.total = 0;
+    }
     knex('painting')
     .then((results)=>{
       res.render('shop', {paintings: results});

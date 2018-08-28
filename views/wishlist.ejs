@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Cart</title>
+  <title>Wishlist</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.3/simplex/bootstrap.min.css">
   <style media="screen">
     body {
@@ -29,7 +29,7 @@
 
 <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-    <a class="navbar-brand active" href="/cart">cart</a>
+    <a class="navbar-brand active" href="/wishlist">wishlist</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -49,20 +49,18 @@
           <a class="nav-link" href="/contact">contact</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/wishlist">wishlist</a>
+          <a class="nav-link" href="/cart">cart</a>
         </li>
       </ul>
     </div>
   </nav>
-
-  <h1>Shopping cart</h1>
-  <h3>Total: $<%=total%></h3>
+  <h1>Wishlist</h1>
   <div class="grid-container">
-    <% for(let i=0; i < cart.length; i++) { %>
+    <% for(let i=0; i < wishlist.length; i++) { %>
       <div class="grid-item">
-        <h1><%= cart[i].genre %></h1>
-        <h2><%= cart[i].series %></h2>
-        <img src="<%= cart[i].img_location %>">
+        <h1><%= wishlist[i].genre %></h1>
+        <h2><%= wishlist[i].series %></h2>
+        <img src="<%= wishlist[i].img_location %>">
       </div>
       <%}%>
   </div>

@@ -9,8 +9,10 @@ module.exports = function(app){
   app.get('/shop', painting.shop);
   app.get('/canvas', painting.canvas);
   //ORDER
-  app.get('/cart/:id', order.cart);
-  app.get('/cart', order.home_cart)
+  app.post('/cart/:id', order.cart);
+  app.get('/cart', order.home_cart);
+  app.get('/wishlist', order.home_wishlist);
+  app.get('/wishlist/:id', order.wishlist);
   //ADMIN
   app.get('/contact', admin.contact);
   app.get('/admin', admin.adminPg);
