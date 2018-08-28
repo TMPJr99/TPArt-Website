@@ -41,4 +41,8 @@ module.exports = {
       }
     }
   },
+
+  purchase_all: (req, res)=>{
+    res.render('')
+  }
 }
