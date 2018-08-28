@@ -24,6 +24,10 @@
       font-size: 15px;
       text-align: center;
     }
+
+    .images {
+      max-width: 500px;
+    }
   </style>
 </head>
 
@@ -62,7 +66,7 @@
       <div class="grid-item">
         <h1><%= cart[i].genre %></h1>
         <h2><%= cart[i].series %></h2>
-        <img src="<%= cart[i].img_location %>">
+        <img class="images" src="<%= cart[i].img_location %>">
       </div>
       <%}%>
   </div>
