@@ -41,4 +41,7 @@ module.exports = {
       }
     }
   },
+  payment: (req,res)=>{
+    res.render('order');
+  }
 }
