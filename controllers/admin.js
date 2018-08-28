@@ -9,4 +9,29 @@ module.exports = {
        res.render('contact', {painting});
      })
   },
+
+  adminPg: (req, res)=>{
+    res.render('admin');
+  },
+
+  login: (req, res)=>{
+    knex('admin').where('email', req.body.email)
+    .then((result)=>{
+      let admin = result[0];
+    
+      if(admin.password === req.body.password){
+        req.session.admin_id = admin.id;
+        req.session.save(()=> res.redirect('/admin-home'))
+      }else{
+        res.redirect('/admin');
+      }
+    })
+  },
+
+  secure: (req, res) =>{
+    knex('admin').where('id', req.session.admin_id)
+    .then(()=>{
+      res.render('admin-home');
+    })
+  }
 }

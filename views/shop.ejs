@@ -19,6 +19,17 @@
       font-size: 15px;
       text-align: center;
     }
+
+    .add-to-cart, .add-to-wish{
+      color: white;
+    }
+
+    .add-to-cart:hover{
+      color: white;
+    }
+    .add-to-wish:hover{
+      color: white;
+    }
   </style>
 </head>
 
@@ -32,13 +43,19 @@
     <div class="collapse navbar-collapse" id="navbarColor03">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link" href="/home">home <span class="sr-only"></span></a>
+          <a class="nav-link" href="/">home <span class="sr-only"></span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">tp on canvas</a>
+          <a class="nav-link" href="/canvas">tp on canvas</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/contact">contact</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">cart</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">wishlist</a>
         </li>
       </ul>
     </div>
@@ -50,10 +67,11 @@
         <h2><%= paintings[i].series %></h2>
         <img src="<%= paintings[i].img_location %>">
         <h2>$<%= paintings[i].price %></h2>
+        <button type="submit" class="btn btn-primary"><a class="add-to-cart" href="/cart/<%= paintings[i].id %>">Add to cart</a></button>
+        <button type="submit" class="btn btn-info"><a class="add-to-wish" href="#">Add to wishlist</a></button>
       </div>
-      <%}%>
+    <%}%>
   </div>
-
 </body>
 
 </html>
