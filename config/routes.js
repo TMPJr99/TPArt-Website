@@ -10,6 +10,7 @@ module.exports = function(app){
   app.get('/canvas', painting.canvas);
   //ORDER
   app.get('/cart/:id', order.cart);
+  app.get('/cart', order.home_cart)
   //ADMIN
   app.get('/contact', admin.contact);
   app.get('/admin', admin.adminPg);

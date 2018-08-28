@@ -9,4 +9,8 @@ module.exports = {
       req.session.save(()=>res.render('cart', {cart: req.session.cart}));
     })
   },
+
+  home_cart: (req, res)=>{
+    res.render('cart', {cart:req.session.cart})
+  },
 }
