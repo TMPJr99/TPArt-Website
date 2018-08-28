@@ -13,6 +13,7 @@ module.exports = function(app){
   app.get('/cart', order.home_cart);
   app.get('/wishlist', order.home_wishlist);
   app.get('/wishlist/:id', order.wishlist);
+  app.post('/cart/remove/:id', order.cart_remove);
   //ADMIN
   app.get('/contact', admin.contact);
   app.get('/admin', admin.adminPg);
