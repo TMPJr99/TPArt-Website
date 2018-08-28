@@ -45,7 +45,7 @@
       max-width: 500px;
     }
 
-    .remove {
+    .remove, .order-btn {
       color: white;
     }
 
@@ -53,8 +53,17 @@
       color: white;
     }
 
+    .order-btn:hover{
+      color: white;
+      text-decoration: none;
+    }
+
     .price{
       margin: 5px 0;
+    }
+
+    .order-btn-style{
+      padding-top: 10px;
     }
   </style>
 </head>
@@ -99,7 +108,9 @@
         <form action="/cart/remove/<%= cart[i].id %>" method="post" class="rmv-div">
           <button type="submit" name="price" value="<%= cart[i].price %>" class="btn btn-primary">Remove from Cart</button>
         </form>
-
+        <div class="order-btn-style">
+          <button type="submit" class="btn btn-info"><a class="order-btn" href="#">Order item</a></button>
+        </div>
       </div>
       <%}%>
   </div>
