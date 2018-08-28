@@ -49,12 +49,15 @@
 
   <h1>Shopping cart</h1>
   <div class="grid-container">
-    <div class="grid-item">
-      <h1><%= painting.genre %></h1>
-      <h2><%= painting.series %></h2>
-      <img src="<%= painting.img_location %>">
-      <h2>$<%= painting.price %></h2>
-    </div>
+    <% for(let i=0; i < cart.length; i++) { %>
+      <div class="grid-item">
+        <h1><%= cart[i].genre %></h1>
+        <h2><%= cart[i].series %></h2>
+        <img src="<%= cart[i].img_location %>">
+        <h2>$<%= cart[i].price %></h2>
+      </div>
+    <%}%>
+
   </div>
 </body>
 
