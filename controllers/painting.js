@@ -9,6 +9,9 @@ module.exports = {
   },
 
   shop: (req, res)=>{
+    if(!req.session.cart){
+      req.session.cart = [];
+    }
     knex('painting')
     .then((results)=>{
       res.render('shop', {paintings: results});

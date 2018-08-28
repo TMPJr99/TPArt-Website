@@ -5,8 +5,8 @@ module.exports = {
   cart: (req, res)=> {
     knex('painting').where('id', req.params.id)
     .then((result)=>{
-      let painting = result[0];
-      res.render('cart', {painting});
+      req.session.cart.push(result[0]);
+      req.session.save(()=>res.render('cart', {cart: req.session.cart}));
     })
   },
 }
