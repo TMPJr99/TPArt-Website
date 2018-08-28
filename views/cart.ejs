@@ -53,8 +53,8 @@
       color: white;
     }
 
-    .rmv-div{
-      padding-top: 10px;
+    .price{
+      margin: 5px 0;
     }
   </style>
 </head>
@@ -95,6 +95,7 @@
         <h1><%= cart[i].genre %></h1>
         <h2><%= cart[i].series %></h2>
         <img class="images" src="<%= cart[i].img_location %>">
+        <h4 class="price">Price: $<%= cart[i].price %></h4>
         <form action="/cart/remove/<%= cart[i].id %>" method="post" class="rmv-div">
           <button type="submit" name="price" value="<%= cart[i].price %>" class="btn btn-primary">Remove from Cart</button>
         </form>
