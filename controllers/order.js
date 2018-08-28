@@ -41,13 +41,8 @@ module.exports = {
       }
     }
   },
-<<<<<<< HEAD
-  payment: (req,res)=>{
-    res.render('order');
-=======
 
-  purchase_all: (req, res)=>{
-    res.render('')
->>>>>>> 01676544e64f60598a2524171244ff19ea7d9376
-  }
+  payment: (req, res)=>{
+    res.render('order');
+  },
 }

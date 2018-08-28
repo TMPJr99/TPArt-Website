@@ -14,8 +14,7 @@ module.exports = function(app){
   app.get('/wishlist', order.home_wishlist);
   app.get('/wishlist/:id', order.wishlist);
   app.post('/cart/remove/:id', order.cart_remove);
-  app.get('/cart/order',order.payment);
-  app.get('/order/all', order.purchase_all);
+  app.get('/order',order.payment);
   //ADMIN
   app.get('/contact', admin.contact);
   app.get('/admin', admin.adminPg);
