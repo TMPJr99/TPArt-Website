@@ -6,9 +6,14 @@
   <title>tp on canvas</title>
   <link rel="stylesheet" href="https://bootswatch.com/4/simplex/bootstrap.css" />
   <style media="screen">
+    body {
+      margin-top: 75px;
+      background-color: #f5f5f5;
+    }
+
     .grid-container {
       display: grid;
-      grid-template-columns: auto auto;
+      grid-template-columns: auto auto auto;
       padding: 10px;
       grid-column-gap: 25px;
       grid-row-gap: 25px;
@@ -19,11 +24,32 @@
       font-size: 15px;
       text-align: center;
     }
+
+    .add-to-cart,
+    .add-to-wish {
+      color: white;
+    }
+
+    .add-to-cart:hover {
+      color: white;
+    }
+
+    .add-to-wish:hover {
+      color: white;
+    }
+
+    .images {
+      padding-bottom: 10px;
+    }
+
+    .select {
+      padding-top: 10px;
+    }
   </style>
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
     <a class="navbar-brand active" href="/canvas">tp on canvas</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -41,26 +67,45 @@
           <a class="nav-link" href="/contact">contact</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">cart</a>
+          <a class="nav-link" href="/cart">cart</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">wishlist</a>
+          <a class="nav-link" href="/wishlist">wishlist</a>
         </li>
       </ul>
     </div>
   </nav>
-  <h1>tp on canvas</h1>
+  <h1>TP on canvas</h1>
   <div class="grid-container">
     <% for(let i=0; i< canvas.length; i++){ %>
       <div class="grid-item">
         <h1><%= canvas[i].genre %></h1>
         <h2><%= canvas[i].series %></h2>
-        <img src="<%= canvas[i].img_location %>">
-        <h2>$<%= canvas[i].price %></h2>
+        <img class="images" src="<%= canvas[i].img_location %>">
+        <div class="form">
+          <form action="/cart/<%= canvas[i].id %>" method="post">
+            <button type="submit" class="btn btn-primary">Add to cart</button>
+            <button type="submit" class="btn btn-info">Add to wishlist</button>
+            <div class="select">
+              <select name="price" class="select">
+                <% if(canvas[i].tier === 1) { %>
+                  <option value="25">8x10: $25</option>
+                  <option value="60">11x14: $60</option>
+                  <option value="80">12x15: $80</option>
+                  <option value="120">16x20: $120</option>
+                <%} else if(canvas[i].tier === 2) { %>
+                  <option value="36">8x10: $36</option>
+                  <option value="90">11x14: $90</option>
+                  <option value="120">12x15: $120</option>
+                  <option value="180">16x20: $180</option>
+                <%}%>
+              </select>
+            </div>
+          </form>
+        </div>
       </div>
-      <% } %>
+    <% } %>
   </div>
-
 </body>
 
 </html>
