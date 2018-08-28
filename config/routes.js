@@ -8,13 +8,15 @@ module.exports = function(app){
   app.get('/', painting.home);
   app.get('/shop', painting.shop);
   app.get('/canvas', painting.canvas);
+  //ORDER
+  app.get('/cart/:id', order.cart);
   //ADMIN
   app.get('/contact', admin.contact);
   app.get('/admin', admin.adminPg);
   app.post('/login', admin.login);
   app.use(authenticate);
   app.get('/admin-home', admin.secure);
-  //ORDER
+
 
 }
 
