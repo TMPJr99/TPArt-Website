@@ -4,7 +4,7 @@ exports.up = function(knex, Promise) {
     table.increments();
     table.string('genre');
     table.string('series');
-    table.integer('price');
+    table.integer('tier');
     table.string('img_location');
     table.timestamps(true, true);
   })
