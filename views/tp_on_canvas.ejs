@@ -6,26 +6,26 @@
   <title>tp on canvas</title>
   <link rel="stylesheet" href="https://bootswatch.com/4/simplex/bootstrap.css" />
   <style media="screen">
-  body::before {
-    content: "";
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    opacity: 0.5;
-    z-index: -1;
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    background-image: url('https://www.publicdomainpictures.net/pictures/240000/velka/white-canvas-background.jpg');
-  }
+    body::before {
+      content: "";
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      opacity: 0.5;
+      z-index: -1;
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      background-image: url('https://www.publicdomainpictures.net/pictures/240000/velka/white-canvas-background.jpg');
+    }
 
-  body {
-    margin-top: 75px;
-    z-index: 1;
-    opacity: 1;
-  }
+    body {
+      margin-top: 75px;
+      z-index: 1;
+      opacity: 1;
+    }
 
     .grid-container {
       display: grid;
@@ -99,32 +99,32 @@
         <div class="form">
           <form action="/cart/<%= canvas[i].id %>" method="post">
             <h3><%= canvas[i].size %></h3>
-                <% if(canvas[i].tier === 1) { %>
-                  <% if(canvas[i].size === "8x10"){ %>
-                    <input type="text" name="price" value="150" readonly>
-                  <% } else if(canvas[i].size === "11x14"){%>
-                    <input type="text" name="price" value="200" readonly>
-                      <% } else if(canvas[i].size === "12x15"){%>
-                        <input type="text" name="price" value="250" readonly>
-                        <% } else if(canvas[i].size === "16x20"){%>
-                          <input type="text" name="price" value="300" readonly>
-                          <% } %>
-                <%} else if(canvas[i].tier === 2) { %>
-                  <% if(canvas[i].size === "8x10"){ %>
-                    <input type="text" name="price" value="200" readonly>
-                  <% } else if(canvas[i].size === "11x14"){%>
+            <% if(canvas[i].tier === 1) { %>
+              <% if(canvas[i].size === "8x10"){ %>
+                <input type="text" name="price" value="150" readonly>
+                <% } else if(canvas[i].size === "11x14"){%>
+                  <input type="text" name="price" value="200" readonly>
+                  <% } else if(canvas[i].size === "12x15"){%>
                     <input type="text" name="price" value="250" readonly>
-                      <% } else if(canvas[i].size === "12x15"){%>
-                        <input type="text" name="price" value="300" readonly>
-                        <% } else if(canvas[i].size === "16x20"){%>
-                          <input type="text" name="price" value="350" readonly>
-                          <% } %>
-                <%}%>
-                <button type="submit" class="btn btn-primary">Add to cart</button>
+                    <% } else if(canvas[i].size === "16x20"){%>
+                      <input type="text" name="price" value="300" readonly>
+                      <% } %>
+                        <%} else if(canvas[i].tier === 2) { %>
+                          <% if(canvas[i].size === "8x10"){ %>
+                            <input type="text" name="price" value="200" readonly>
+                            <% } else if(canvas[i].size === "11x14"){%>
+                              <input type="text" name="price" value="250" readonly>
+                              <% } else if(canvas[i].size === "12x15"){%>
+                                <input type="text" name="price" value="300" readonly>
+                                <% } else if(canvas[i].size === "16x20"){%>
+                                  <input type="text" name="price" value="350" readonly>
+                                  <% } %>
+                                    <%}%>
+                                      <button type="submit" class="btn btn-primary">Add to cart</button>
           </form>
         </div>
       </div>
-    <% } %>
+      <% } %>
   </div>
 </body>
 
