@@ -91,9 +91,18 @@
         <h3>Email: <%= orders[i].email %></h3>
         <h3>Address: <%= orders[i].address %></h3>
         <h3>Status: <%= orders[i].status %></h3>
+        <form class="" action="/admin/orders/<%= orders[i].id %>" method="post">
+        <% if(orders[i].status === "ordered"){ %>
+        <button class="btn btn-primary" value="blah" type="submit" name="enroute">En Route</button>
+        <% }else if(orders[i].status === "en route"){ %>
+        <button class="btn btn-primary" value="blah" type="submit" name="delivered">Delivered</button>
+        <% }else if(orders[i].status === "delivered"){ %>
+        <button class="btn btn-primary" value="blah" type="submit" name="delete">Delete Order</button>
+        <% } %>
         <hr>
       </div>
       <%}%>
+    </form>
   </div>
 </body>
 

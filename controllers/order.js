@@ -64,5 +64,25 @@ module.exports = {
     req.session.cart = [];
     req.session.total = 0;
     res.redirect('/shop')
+  },
+
+  change: (req, res)=>{
+    if (req.body.enroute) {
+      knex('order').where('id', req.params.id).update({
+        status: "en route"
+      }).then(() => {
+        res.redirect('/admin/orders')
+      })
+    } else if (req.body.delivered) {
+      knex('order').where('id', req.params.id).update({
+        status: "delivered"
+      }).then(() => {
+        res.redirect('/admin/orders')
+      })
+    } else {
+      knex('order').del().where('id', req.params.id).then(() => {
+        res.redirect('/admin/orders')
+      })
+    }
   }
 }
