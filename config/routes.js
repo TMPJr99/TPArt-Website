@@ -12,7 +12,9 @@ module.exports = function(app){
   app.post('/cart/:id', order.cart);
   app.get('/cart', order.home_cart);
   app.post('/cart/remove/:id', order.cart_remove);
-  app.get('/order',order.payment);
+  app.get('/order/all',order.payment);
+  app.get('/order/:id',order.payment_1);
+  app.post('/order', order.insert);
   //ADMIN
   app.get('/contact', admin.contact);
   app.get('/admin', admin.adminPg);

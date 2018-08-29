@@ -112,16 +112,17 @@ span.price {
 <body>
 
 
+
 <div class="row">
   <div class="col-75">
     <div class="container">
-      <form action="/action_page.php">
+      <form action="/order" method="post">
 
         <div class="row">
           <div class="col-50">
             <h3>Billing Address</h3>
             <label for="fname"><i class="fa fa-user"></i> Full Name</label>
-            <input type="text" id="fname" name="firstname" placeholder="John M. Doe">
+            <input type="text" id="fname" name="name" placeholder="John M. Doe">
             <label for="email"><i class="fa fa-envelope"></i> Email</label>
             <input type="text" id="email" name="email" placeholder="john@example.com">
             <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
@@ -140,6 +141,9 @@ span.price {
               </div>
             </div>
           </div>
+          <button type="submit" name="button">Submit</button>
+        </form>
+        <form class="" action="index.html" method="post">
 
           <div class="col-50">
             <h3>Payment</h3>
@@ -178,13 +182,12 @@ span.price {
   </div>
   <div class="col-25">
     <div class="container">
-      <h4>Cart <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b>4</b></span></h4>
-      <p> Product 1 <span class="price">$15</span></p>
-      <p> Product 2 <span class="price">$5</span></p>
-      <p> Product 3 <span class="price">$8</span></p>
-      <p> Product 4 <span class="price">$2</span></p>
+      <h4>Cart <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b><%= cart.length %></b></span></h4>
+      <% for(let i = 0; i < cart.length; i++){ %>
+      <p> Product <%= i + 1 %> <span class="price">$<%= cart[i].price %></span></p>
+      <% } %>
       <hr>
-      <p>Total <span class="price" style="color:black"><b>$30</b></span></p>
+      <p>Total <span class="price" style="color:black"><b>$<%= total %></b></span></p>
     </div>
   </div>
 </div>
