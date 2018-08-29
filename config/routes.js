@@ -25,6 +25,7 @@ module.exports = function(app){
   app.get('/logout', admin.logout);
   app.get('/remove/:id', admin.remove);
   app.get('/remove-canvas/:id', admin.removeCanvas);
+  app.get('/admin/orders', admin.allOrders);
 }
 
 function authenticate(req, res, next){

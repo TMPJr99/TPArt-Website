@@ -56,5 +56,13 @@ module.exports = {
     .then(()=>{
       res.redirect('/canvas')
     })
+  },
+
+  allOrders: (req, res)=>{
+    let admin = req.session.admin_id;
+    knex('order')
+    .then((results)=>{
+      res.render('admin-orders', {orders: results, admin})
+    })
   }
 }
