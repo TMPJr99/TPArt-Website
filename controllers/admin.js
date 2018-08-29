@@ -3,10 +3,11 @@ const knex = require("../db/knex.js");
 module.exports = {
   // CHANGE ME TO AN ACTUAL FUNCTION
    contact: (req, res) => {
+     let admin = req.session.admin_id
      knex('painting')
      .then((result)=>{
        let painting = result[0];
-       res.render('contact', {painting});
+       res.render('contact', {painting, admin});
      })
   },
 
@@ -21,7 +22,7 @@ module.exports = {
 
       if(admin.password === req.body.password){
         req.session.admin_id = admin.id;
-        req.session.save(()=> res.redirect('/admin-home'))
+        req.session.save(()=> res.redirect('/'))
       }else{
         res.redirect('/admin');
       }
@@ -39,7 +40,7 @@ module.exports = {
   logout: (req, res)=>{
     req.session.destroy((err)=>{
       if(err) throw err;
-      res.redirect('/admin');
+      res.redirect('/');
     })
   },
 

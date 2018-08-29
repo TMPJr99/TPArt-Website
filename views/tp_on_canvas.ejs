@@ -100,9 +100,19 @@
         <li class="nav-item">
           <a class="nav-link" href="/contact">contact</a>
         </li>
+        <% if(!admin){ %>
         <li class="nav-item">
           <a class="nav-link" href="/cart">cart</a>
         </li>
+        <% } %>
+        <% if(admin){ %>
+          <li class="nav-item">
+            <a class="nav-link" href="#">orders</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/logout">logout</a>
+          </li>
+          <% } %>
       </ul>
     </div>
   </nav>

@@ -3,6 +3,7 @@ const knex = require("../db/knex.js");
 module.exports = {
   // CHANGE ME TO AN ACTUAL FUNCTION
   home: (req, res) => {
+    let admin = req.session.admin_id
     if (!req.session.cart) {
       req.session.cart = [];
     }
@@ -11,7 +12,7 @@ module.exports = {
     }
     knex('painting').then((result) => {
       res.render('home', {
-        paintings: result
+        paintings: result, admin
       });
     })
   },

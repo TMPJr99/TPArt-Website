@@ -27,6 +27,7 @@
       margin-top: 75px;
       z-index: 1;
       opacity: 1;
+      overflow-x: hidden;
     }
 
     .slide {
@@ -60,6 +61,13 @@
     .footer-divider {
       margin-bottom: 0;
     }
+
+    .login{
+      margin-left: 150vh;
+    }
+    .login-link:hover{
+      text-decoration: none;
+    }
   </style>
 </head>
 
@@ -81,9 +89,19 @@
         <li class="nav-item">
           <a class="nav-link" href="/contact">contact</a>
         </li>
+        <% if(!admin){ %>
         <li class="nav-item">
           <a class="nav-link" href="/cart">cart</a>
         </li>
+        <% } %>
+        <% if(admin){ %>
+          <li class="nav-item">
+            <a class="nav-link" href="#">orders</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/logout">logout</a>
+          </li>
+          <% } %>
       </ul>
     </div>
   </nav>
@@ -124,7 +142,10 @@
 
   <hr class="footer-divider">
   <footer class="bg-light page-footer font-small">
-    <p>© COPYRIGHT 2015. ALL RIGHTS RESERVED.</p>
+    <span>© COPYRIGHT 2015. ALL RIGHTS RESERVED.</span>
+    <span class="login">
+      <a class="login-link" href="/admin">Admin Login</a>
+    </span>
   </footer>
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
