@@ -1,7 +1,13 @@
+// Publishable
+// pk_test_JlzCmIBgh3cYfgaJqc5uvOZL
+// Secret
+// sk_test_0NdER5T637jrOOVPg8JbukyU
+
 const express = require("express");
 const path = require("path");
 const app = express();
 const bodyParser = require('body-parser');
+const stripe = require('stripe')("sk_test_0NdER5T637jrOOVPg8JbukyU");
 const port = process.env.PORT || 8000;
 app.use(bodyParser.json({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: true }));

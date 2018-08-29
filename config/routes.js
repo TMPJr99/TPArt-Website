@@ -15,6 +15,7 @@ module.exports = function(app){
   app.get('/order/all',order.payment);
   app.get('/order/:id',order.payment_1);
   app.post('/order', order.insert);
+  app.post('/charge', order.charge);
   //ADMIN
   app.get('/contact', admin.contact);
   app.get('/admin', admin.adminPg);

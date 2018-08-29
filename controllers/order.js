@@ -56,5 +56,9 @@ module.exports = {
     }).then(()=>{
       res.redirect('back');
     })
+  },
+
+  charge: (req, res)=>{
+    
   }
 }
