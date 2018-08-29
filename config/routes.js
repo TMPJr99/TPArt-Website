@@ -21,7 +21,7 @@ module.exports = function(app){
   app.post('/login', admin.login);
   app.use(authenticate);
   app.get('/admin-home', admin.secure);
-
+  app.get('/logout', admin.logout);
 
 }
 
