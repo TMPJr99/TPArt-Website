@@ -11,6 +11,19 @@
       background-size: cover;
       opacity: 0.9;
     }
+    .container{
+      position: absolute;
+      right: 0;
+      top: 50px;
+    }
+
+    .input-format{
+      opacity: 0.8;
+    }
+    .input {
+      text-align: center;
+      font-size: 20px;
+    }
     .container {
       text-align: center;
     }
@@ -23,11 +36,11 @@
 
 <body>
   <div class="container">
-    <h1>Login</h1>
+    <h1 class="heading">Admin</h1>
     <form action="/login" method="post">
-      <div class="input-format"><input type="email" name="email" placeholder="Email" required></div>
-      <div class="input-format"><input type="password" name="password" placeholder="Password" required></div>
-      <button type="submit" class="btn btn-primary">Login</button>
+      <div class="input-format"><input class="input" type="email" name="email" placeholder="Email" required></div>
+      <div class="input-format"><input class="input" type="password" name="password" placeholder="Password" required></div>
+      <button type="submit" class="btn btn-warning">Login</button>
     </form>
 </body>
 
