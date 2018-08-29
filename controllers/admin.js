@@ -41,5 +41,19 @@ module.exports = {
       if(err) throw err;
       res.redirect('/admin');
     })
+  },
+
+  remove: (req, res)=>{
+    knex('painting').del().where('id', req.params.id)
+    .then(()=>{
+      res.redirect('/shop')
+    })
+  },
+
+  removeCanvas: (req, res)=>{
+    knex('painting').del().where('id', req.params.id)
+    .then(()=>{
+      res.redirect('/canvas')
+    })
   }
 }

@@ -25,6 +25,7 @@
       margin-top: 75px;
       z-index: 1;
       opacity: 1;
+      overflow-x: hidden;
     }
 
     .grid-container {
@@ -56,11 +57,14 @@
 
     .images {
       padding-bottom: 10px;
-      max-width: 500px;
+      max-width: 350px;
     }
 
     .select {
       padding-top: 10px;
+    }
+    .remove-btn {
+      padding-top: 5px;
     }
   </style>
 </head>
@@ -122,6 +126,11 @@
                                     <%}%>
                                       <button type="submit" class="btn btn-primary">Add to cart</button>
           </form>
+          <% if(admin){ %>
+            <div class="remove-btn">
+              <a href="/remove-canvas/<%= canvas[i].id%>"><button class="btn btn-info">Remove</button></a>
+            </div>
+          <%}%>
         </div>
       </div>
       <% } %>

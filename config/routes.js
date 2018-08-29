@@ -23,7 +23,8 @@ module.exports = function(app){
   app.use(authenticate);
   app.get('/admin-home', admin.secure);
   app.get('/logout', admin.logout);
-
+  app.get('/remove/:id', admin.remove);
+  app.get('/remove-canvas/:id', admin.removeCanvas);
 }
 
 function authenticate(req, res, next){

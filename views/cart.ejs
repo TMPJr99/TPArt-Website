@@ -25,6 +25,7 @@
       margin-top: 75px;
       z-index: 1;
       opacity: 1;
+      overflow-x: hidden;
     }
 
     .grid-container {
@@ -42,7 +43,7 @@
     }
 
     .images {
-      max-width: 500px;
+      max-width: 350px;
     }
 
     .remove, .order-btn {
@@ -107,7 +108,7 @@
           <button type="submit" name="price" value="<%= cart[i].price %>" class="btn btn-primary">Remove from Cart</button>
         </form>
         <div class="order-btn-style">
-          <button type="submit" class="btn btn-info"><a class="order-btn" href="/order/<%= cart[i].id %>">Order item</a></button>
+          <a class="order-btn" href="/order/<%= cart[i].id %>"><button type="submit" class="btn btn-info">Order item</button></a>
         </div>
       </div>
       <%}%>

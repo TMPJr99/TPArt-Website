@@ -17,6 +17,7 @@ module.exports = {
   },
 
   shop: (req, res) => {
+    let admin = req.session.admin_id;
     knex('painting')
       .then((results) => {
         let acc = [];
@@ -26,16 +27,17 @@ module.exports = {
           }
         }
         res.render('shop', {
-          paintings: acc
+          paintings: acc, admin
         });
       })
   },
 
   canvas: (req, res) => {
+    let admin = req.session.admin_id;
     knex('painting').where('series', 'canvas')
       .then((results) => {
         res.render('tp_on_canvas', {
-          canvas: results
+          canvas: results, admin
         });
       })
   },
