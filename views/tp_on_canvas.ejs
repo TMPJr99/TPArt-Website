@@ -98,23 +98,29 @@
         <img class="images" src="<%= canvas[i].img_location %>">
         <div class="form">
           <form action="/cart/<%= canvas[i].id %>" method="post">
-            <button type="submit" class="btn btn-primary">Add to cart</button>
-            <div class="select">
-              <select name="price" class="select" required>
-                <option value="" disabled selected >Select a Size</option>
+            <h3><%= canvas[i].size %></h3>
                 <% if(canvas[i].tier === 1) { %>
-                  <option value="25">8x10: $25</option>
-                  <option value="60">11x14: $60</option>
-                  <option value="80">12x15: $80</option>
-                  <option value="120">16x20: $120</option>
+                  <% if(canvas[i].size === "8x10"){ %>
+                    <input type="text" name="price" value="150" readonly>
+                  <% } else if(canvas[i].size === "11x14"){%>
+                    <input type="text" name="price" value="200" readonly>
+                      <% } else if(canvas[i].size === "12x15"){%>
+                        <input type="text" name="price" value="250" readonly>
+                        <% } else if(canvas[i].size === "16x20"){%>
+                          <input type="text" name="price" value="300" readonly>
+                          <% } %>
                 <%} else if(canvas[i].tier === 2) { %>
-                  <option value="36">8x10: $36</option>
-                  <option value="90">11x14: $90</option>
-                  <option value="120">12x15: $120</option>
-                  <option value="180">16x20: $180</option>
+                  <% if(canvas[i].size === "8x10"){ %>
+                    <input type="text" name="price" value="200" readonly>
+                  <% } else if(canvas[i].size === "11x14"){%>
+                    <input type="text" name="price" value="250" readonly>
+                      <% } else if(canvas[i].size === "12x15"){%>
+                        <input type="text" name="price" value="300" readonly>
+                        <% } else if(canvas[i].size === "16x20"){%>
+                          <input type="text" name="price" value="350" readonly>
+                          <% } %>
                 <%}%>
-              </select>
-            </div>
+                <button type="submit" class="btn btn-primary">Add to cart</button>
           </form>
         </div>
       </div>
