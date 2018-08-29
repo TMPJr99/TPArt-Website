@@ -54,11 +54,15 @@ module.exports = {
       address: `${body.address}, ${body.city}, ${body.state}, ${body.zip}`,
       status: "ordered"
     }).then(()=>{
-      res.redirect('back');
+      req.session.cart = [];
+      req.session.total = 0;
+      res.redirect('/shop')
     })
   },
 
   charge: (req, res)=>{
-    
+    req.session.cart = [];
+    req.session.total = 0;
+    res.redirect('/shop')
   }
 }
