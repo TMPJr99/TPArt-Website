@@ -90,9 +90,6 @@
         <li class="nav-item">
           <a class="nav-link" href="/cart">cart</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/wishlist">wishlist</a>
-        </li>
       </ul>
     </div>
   </nav>
@@ -105,7 +102,6 @@
         <div class="form">
           <form action="/cart/<%= paintings[i].id %>" method="post">
             <button type="submit" class="btn btn-primary">Add to cart</button>
-            <button type="submit" class="btn btn-info">Add to wishlist</button>
             <div class="select">
               <select name="price" class="select" required>
                 <option value="" disabled selected >Select a Size</option>

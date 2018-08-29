@@ -11,8 +11,6 @@ module.exports = function(app){
   //ORDER
   app.post('/cart/:id', order.cart);
   app.get('/cart', order.home_cart);
-  app.get('/wishlist', order.home_wishlist);
-  app.get('/wishlist/:id', order.wishlist);
   app.post('/cart/remove/:id', order.cart_remove);
   app.get('/order',order.payment);
   //ADMIN
@@ -21,7 +19,7 @@ module.exports = function(app){
   app.post('/login', admin.login);
   app.use(authenticate);
   app.get('/admin-home', admin.secure);
-
+  app.get('/logout', admin.logout);
 
 }
 
