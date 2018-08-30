@@ -5,6 +5,7 @@
   <meta charset="utf-8">
   <title>Shop</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.3/simplex/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
   <style media="screen">
     body::before {
       content: "";
@@ -28,11 +29,16 @@
       overflow-x: hidden;
     }
 
+    .heading{
+      text-align: center;
+      padding-bottom: 25px;
+    }
+
     .grid-container {
       display: grid;
-      grid-template-columns: auto auto auto;
+      grid-template-columns: auto;
       padding: 10px;
-      grid-column-gap: 25px;
+      grid-column-gap: 15px;
       grid-row-gap: 25px;
     }
 
@@ -40,6 +46,9 @@
       padding: 20px;
       font-size: 15px;
       text-align: center;
+      border: 1px solid grey;
+      background-color: rgb(255,255,255);
+      max-width: 500px;
     }
 
     .add-to-cart,
@@ -109,10 +118,11 @@
       </ul>
     </div>
   </nav>
+  <h1 class="heading">Shop all prints <i class="fas fa-paint-brush"></i></h1>
   <div class="grid-container">
     <% for(let i = 0; i < paintings.length; i++ ) { %>
-      <div class="grid-item">
-        <h1><%= paintings[i].genre %></h1>
+      <div class="grid-item container">
+        <h2><%= paintings[i].genre %></h2>
         <h2><%= paintings[i].series %></h2>
         <img class="images" src="<%= paintings[i].img_location %>">
         <div class="form">
