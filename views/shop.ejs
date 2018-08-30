@@ -141,7 +141,7 @@
         <h2><%= paintings[i].series %></h2>
         <img class="images" src="<%= paintings[i].img_location %>">
         <div class="form">
-          <form action="/cart/<%= paintings[i].id %>" method="post">
+          <form action="/cart/<%= paintings[i].id %>" method="post" onsubmit="alert('added to cart')">
             <button type="submit" class="btn btn-primary">Add to cart</button>
             <div class="select">
               <select name="price" class="select" required>
