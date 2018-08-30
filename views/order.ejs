@@ -123,7 +123,12 @@
   <div class="row">
     <div class="col-75">
       <div class="container">
+        <% if(cart.length > 1){ %>
         <form action="/order" method="post">
+        <% }else{ %>
+          <form action="/order/<%= cart[0].id %>" method="post">
+        <% } %>
+        <input type="number" name="price" value="<%= total %>" hidden>
           <div class="row">
             <div class="col-50">
               <h3>Checkout</h3>

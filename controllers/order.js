@@ -8,7 +8,7 @@ module.exports = {
       result[0].price = req.body.price;
       req.session.cart.push(result[0]);
       req.session.total += parseInt(req.body.price);
-      req.session.save(()=>res.render('cart', {cart: req.session.cart, total: req.session.total}));
+      req.session.save(()=>res.redirect('back'));
     })
   },
 
@@ -54,17 +54,30 @@ module.exports = {
       address: `${body.address}, ${body.city}, ${body.state}, ${body.zip}`,
       status: "ordered"
     }).then(()=>{
-      req.session.cart = [];
-      req.session.total = 0;
-      res.redirect('/shop')
+        req.session.cart = [];
+        req.session.total = 0;
+        res.redirect('/shop')
     })
   },
 
   charge: (req, res)=>{
-    req.session.cart = [];
-    req.session.total = 0;
-    res.redirect('/shop')
+    let body = req.body;
+    knex('order').insert({
+      name: body.name,
+      email: body.email,
+      address: `${body.address}, ${body.city}, ${body.state}, ${body.zip}`,
+      status: "ordered"
+    }).then(()=>{
+      for(var i = 0; i < req.session.cart.length; i++) {
+        if(req.session.cart[i].id == req.params.id){
+          req.session.cart.splice(i, 1);
+          req.session.total -= req.body.price;
+        }
+      }
+      res.redirect('/shop')
+    })
   },
+
 
   change: (req, res)=>{
     if (req.body.enroute) {
