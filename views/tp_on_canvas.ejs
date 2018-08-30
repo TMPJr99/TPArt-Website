@@ -4,7 +4,8 @@
 <head>
   <meta charset="utf-8">
   <title>tp on canvas</title>
-  <link rel="stylesheet" href="https://bootswatch.com/4/simplex/bootstrap.css" />
+  <link rel="stylesheet" href="https://bootswatch.com/4/simplex/bootstrap.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
   <style media="screen">
     body::before {
       content: "";
@@ -28,11 +29,16 @@
       overflow-x: hidden;
     }
 
+    .heading {
+      text-align: center;
+      padding-bottom: 25px;
+    }
+
     .grid-container {
       display: grid;
-      grid-template-columns: auto auto auto;
+      grid-template-columns: auto;
       padding: 10px;
-      grid-column-gap: 25px;
+      grid-column-gap: 15px;
       grid-row-gap: 25px;
     }
 
@@ -40,6 +46,9 @@
       padding: 20px;
       font-size: 15px;
       text-align: center;
+      border: 1px solid grey;
+      background-color: rgb(255, 255, 255);
+      max-width: 500px;
     }
 
     .add-to-cart,
@@ -68,14 +77,15 @@
       padding-top: 5px;
     }
 
-    .input{
+    .input {
       border: none;
       background: none;
       width: 40px;
       text-align: center;
       font-size: 15pt;
     }
-    span{
+
+    span {
       font-size: 15pt;
 
     }
@@ -101,26 +111,26 @@
           <a class="nav-link" href="/contact">contact</a>
         </li>
         <% if(!admin){ %>
-        <li class="nav-item">
-          <a class="nav-link" href="/cart">cart</a>
-        </li>
-        <% } %>
-        <% if(admin){ %>
           <li class="nav-item">
-            <a class="nav-link" href="/admin/orders">orders</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/logout">logout</a>
+            <a class="nav-link" href="/cart">cart</a>
           </li>
           <% } %>
+            <% if(admin){ %>
+              <li class="nav-item">
+                <a class="nav-link" href="/admin/orders">orders</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/logout">logout</a>
+              </li>
+              <% } %>
       </ul>
     </div>
   </nav>
-  <h1>TP on canvas</h1>
+  <h1 class="heading">TP on canvas <i class="fas fa-paint-brush"></i></h1>
   <div class="grid-container">
     <% for(let i=0; i< canvas.length; i++){ %>
-      <div class="grid-item">
-        <h1><%= canvas[i].genre %></h1>
+      <div class="grid-item container">
+        <h2><%= canvas[i].genre %></h2>
         <h2><%= canvas[i].series %></h2>
         <img class="images" src="<%= canvas[i].img_location %>">
         <div class="form">
@@ -153,7 +163,7 @@
             <div class="remove-btn">
               <a href="/remove-canvas/<%= canvas[i].id%>"><button class="btn btn-info">Remove</button></a>
             </div>
-          <%}%>
+            <%}%>
         </div>
       </div>
       <% } %>
