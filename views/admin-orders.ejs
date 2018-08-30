@@ -26,6 +26,7 @@
       z-index: 1;
       opacity: 1;
       overflow-x: hidden;
+      margin-left: 20px;
     }
 
 
@@ -40,7 +41,9 @@
     .grid-item {
       padding: 20px;
       font-size: 15px;
-      text-align: center;
+      border: 1px solid #e6e6e6;
+      max-width: 50%;
+      background-color: rgb(255,255,255);
     }
 
     hr {
@@ -48,6 +51,10 @@
       height: 0;
       border-top: 1px solid rgba(0, 0, 0, 0.1);
       border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .heading{
+      margin-left: 20px;
     }
   </style>
 </head>
@@ -74,17 +81,18 @@
           <li class="nav-item">
             <a class="nav-link" href="/cart">cart</a>
           </li>
-          <% } %>
-            <% if(admin){ %>
-              <li class="nav-item">
-                <a class="nav-link" href="/logout">logout</a>
-              </li>
-              <% } %>
+        <% } %>
+          <% if(admin){ %>
+            <li class="nav-item">
+              <a class="nav-link" href="/logout">logout</a>
+            </li>
+        <% } %>
       </ul>
     </div>
   </nav>
-  <h1 class="heading">Orders</h1>
+
   <div class="grid-container">
+    <h1 class="heading">Orders</h1>
     <% for(let i = 0; i < orders.length; i++) { %>
       <div class="grid-item">
         <h2>Name: <%= orders[i].name %></h2>
@@ -92,17 +100,16 @@
         <h3>Address: <%= orders[i].address %></h3>
         <h3>Status: <%= orders[i].status %></h3>
         <form class="" action="/admin/orders/<%= orders[i].id %>" method="post">
-        <% if(orders[i].status === "ordered"){ %>
-        <button class="btn btn-primary" value="blah" type="submit" name="enroute">En Route</button>
-        <% }else if(orders[i].status === "en route"){ %>
-        <button class="btn btn-primary" value="blah" type="submit" name="delivered">Delivered</button>
-        <% }else if(orders[i].status === "delivered"){ %>
-        <button class="btn btn-primary" value="blah" type="submit" name="delete">Delete Order</button>
-        <% } %>
-        <hr>
+          <% if(orders[i].status === "ordered"){ %>
+            <button class="btn btn-primary" value="blah" type="submit" name="enroute">En Route</button>
+            <% }else if(orders[i].status === "en route"){ %>
+              <button class="btn btn-primary" value="blah" type="submit" name="delivered">Delivered</button>
+              <% }else if(orders[i].status === "delivered"){ %>
+                <button class="btn btn-primary" value="blah" type="submit" name="delete">Delete Order</button>
+                <% } %>
       </div>
       <%}%>
-    </form>
+        </form>
   </div>
 
 </body>
