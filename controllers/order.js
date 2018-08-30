@@ -65,7 +65,7 @@ module.exports = {
     knex('order').insert({
       name: body.name,
       email: body.email,
-      address: `${body.address}, ${body.city}, ${body.state}, ${body.zip}`,
+      address: `${body.address}, ${body.city}, ${body.state} ${body.zip}`,
       status: "ordered"
     }).then(()=>{
       for(var i = 0; i < req.session.cart.length; i++) {
