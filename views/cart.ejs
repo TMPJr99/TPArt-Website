@@ -27,6 +27,7 @@
       z-index: 1;
       opacity: 1;
       overflow-x: hidden;
+      margin-bottom: 25px;
     }
 
     .grid-container {
@@ -50,7 +51,8 @@
       max-width: 350px;
     }
 
-    .remove, .order-btn {
+    .remove,
+    .order-btn {
       color: white;
     }
 
@@ -58,27 +60,26 @@
       color: white;
     }
 
-    .order-btn:hover{
+    .order-btn:hover {
       color: white;
       text-decoration: none;
     }
 
-    .price{
+    .price {
       margin: 5px 0;
     }
 
-    .order-btn-style{
+    .order-btn-style {
       padding-top: 10px;
     }
 
-    .total-div{
-      text-align: center;
-      padding-top: 20px;
-    }
-
-    .heading{
+    .total-div {
       margin-left: 20px;
       padding-bottom: 20px;
+    }
+
+    .heading {
+      margin-left: 20px;
     }
   </style>
 </head>
@@ -108,7 +109,10 @@
     </div>
   </nav>
 
-  <h1 class="heading">Shopping cart <i class="fas fa-shopping-cart"></i></h1>
+  <h1 class="heading">Shopping cart <i class="fas fa-shopping-cart"></i><span> $<%=total%></span></h1>
+  <div class="total-div">
+    <a class="purchase-all" href="/order/all"><button class="btn btn-info" type="button" name="button">Purchase all</button></a>
+  </div>
 
   <div class="grid-container">
     <% for(let i=0; i < cart.length; i++) { %>
@@ -126,10 +130,6 @@
       </div>
       <%}%>
   </div>
-  <div class="total-div">
-  <h3>Total: $<%=total%></h3>
-  <a class="purchase-all" href="/order/all"><button class="btn btn-info" type="button" name="button">Purchase all</button></a>
-</div>
 </body>
 
 </html>
