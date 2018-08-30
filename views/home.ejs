@@ -59,16 +59,19 @@
       text-align: center;
     }
 
-    .artists_msg {
-      margin: 125px;
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      padding: 10px;
+    }
+
+    .grid-item {
+      padding: 20px;
+      font-size: 15px;
       text-align: center;
     }
 
-    .msg-text {
-      margin-left: 300px;
-      margin-right: 300px;
-      padding-top: 75px;
-      padding-bottom: 75px;
+    .artist-msg {
       font-size: 30px;
       font-family: "Papyrus", "fantasy";
       font-weight: bolder;
@@ -149,9 +152,11 @@
     <img class="header_img" src="/images/website-homepage-header_orig.jpg" alt="">
   </header>
 
-  <div class="artists_msg my-4">
-    <h4 class="msg-text">Welcome to TP Creative Arts! "Free the Me" is my movement to put more focus back on myself and effort into the things that inspire and motivate me. My paintings reflect exactly that. I enjoy acrylic on canvas, bold colors and organic abstract images
+  <div class="grid-container">
+    <div class="grid-item">
+      <h4 class="artist-msg">Welcome to TP Creative Arts! "Free the Me" is my movement to put more focus back on myself and effort into the things that inspire and motivate me. My paintings reflect exactly that. I enjoy acrylic on canvas, bold colors and organic abstract images
       and scenes. Take a look around and find what inspires you. Salud!</h4>
+    </div>
   </div>
   <div class="jumbotron jumbotron-fluid">
     <div class="container">
