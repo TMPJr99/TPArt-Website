@@ -162,7 +162,7 @@
         <h2><%= paintings[i].series %></h2>
         <img class="images" src="<%= paintings[i].img_location %>">
         <div class="form">
-          <form action="/cart/<%= paintings[i].id %>" method="post" onsubmit="alert('added to cart')">
+          <form action="/cart/<%= paintings[i].id %>" method="post" onsubmit="alert('Added to cart')">
             <button type="submit" class="btn btn-primary">Add to cart</button>
             <div class="select">
               <select name="price" class="select" required>
@@ -172,12 +172,12 @@
                   <option value="60">11x14: $60</option>
                   <option value="80">12x15: $80</option>
                   <option value="120">16x20: $120</option>
-                <%} else if(paintings[i].tier === 2) { %>
+                <% } else if(paintings[i].tier === 2) { %>
                   <option value="36">8x10: $36</option>
                   <option value="90">11x14: $90</option>
                   <option value="120">12x15: $120</option>
                   <option value="180">16x20: $180</option>
-                <%}%>
+              <% } %>
               </select>
             </div>
           </form>
@@ -185,10 +185,10 @@
             <div class="remove-btn">
               <a href="/remove/<%= paintings[i].id%>"><button class="btn btn-info">Remove</button></a>
             </div>
-          <%}%>
+        <% } %>
         </div>
       </div>
-      <%}%>
+    <% } %>
   </div>
 
   <div class="bottom-nav">

@@ -147,18 +147,18 @@
           <a class="nav-link" href="/contact">contact</a>
         </li>
         <% if(!admin){ %>
-          <li class="nav-item">
-            <a class="nav-link" href="/cart">cart</a>
-          </li>
-          <% } %>
-            <% if(admin){ %>
-              <li class="nav-item">
-                <a class="nav-link" href="/admin/orders">orders</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/logout">logout</a>
-              </li>
-              <% } %>
+        <li class="nav-item">
+          <a class="nav-link" href="/cart">cart</a>
+        </li>
+        <% } %>
+        <% if(admin){ %>
+        <li class="nav-item">
+          <a class="nav-link" href="/admin/orders">orders</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/logout">logout</a>
+        </li>
+        <% } %>
       </ul>
     </div>
   </nav>
@@ -173,33 +173,33 @@
           <form action="/cart/<%= canvas[i].id %>" method="post">
             <h3><%= canvas[i].size %></h3>
             <% if(canvas[i].tier === 1) { %>
-              <% if(canvas[i].size === "8x10"){ %>
-                <span>$</span><input class="input" type="text" name="price" value="150" readonly><br>
-                <% } else if(canvas[i].size === "11x14"){%>
-                  <span>$</span><input class="input" type="text" name="price" value="200" readonly><br>
-                  <% } else if(canvas[i].size === "12x15"){%>
-                    <span>$</span><input class="input" type="text" name="price" value="250" readonly><br>
-                    <% } else if(canvas[i].size === "16x20"){%>
-                      <span>$</span><input class="input" type="text" name="price" value="300" readonly><br>
-                      <% } %>
-                        <%} else if(canvas[i].tier === 2) { %>
-                          <% if(canvas[i].size === "8x10"){ %>
-                            <span>$</span><input class="input" type="text" name="price" value="200" readonly><br>
-                            <% } else if(canvas[i].size === "11x14"){%>
-                              <span>$</span><input class="input" type="text" name="price" value="250" readonly><br>
-                              <% } else if(canvas[i].size === "12x15"){%>
-                                <span>$</span><input class="input" type="text" name="price" value="300" readonly><br>
-                                <% } else if(canvas[i].size === "16x20"){%>
-                                  <span>$</span><input class="input" type="text" name="price" value="350" readonly><br>
-                                  <% } %>
-                                    <%}%>
-                                      <button type="submit" class="btn btn-primary" onclick="alert('added to cart')">Add to cart</button>
+            <% if(canvas[i].size === "8x10"){ %>
+              <span>$</span><input class="input" type="text" name="price" value="150" readonly><br>
+            <% } else if(canvas[i].size === "11x14"){ %>
+              <span>$</span><input class="input" type="text" name="price" value="200" readonly><br>
+            <% } else if(canvas[i].size === "12x15"){ %>
+              <span>$</span><input class="input" type="text" name="price" value="250" readonly><br>
+            <% } else if(canvas[i].size === "16x20"){ %>
+              <span>$</span><input class="input" type="text" name="price" value="300" readonly><br>
+            <% } %>
+            <% } else if(canvas[i].tier === 2) { %>
+            <% if(canvas[i].size === "8x10"){ %>
+              <span>$</span><input class="input" type="text" name="price" value="200" readonly><br>
+            <% } else if(canvas[i].size === "11x14"){ %>
+              <span>$</span><input class="input" type="text" name="price" value="250" readonly><br>
+            <% } else if(canvas[i].size === "12x15"){ %>
+              <span>$</span><input class="input" type="text" name="price" value="300" readonly><br>
+            <% } else if(canvas[i].size === "16x20"){ %>
+              <span>$</span><input class="input" type="text" name="price" value="350" readonly><br>
+            <% } %>
+            <% } %>
+            <button type="submit" class="btn btn-primary" onclick="alert('Added to cart')">Add to cart</button>
           </form>
           <% if(admin){ %>
             <div class="remove-btn">
               <a href="/remove-canvas/<%= canvas[i].id%>"><button class="btn btn-info">Remove</button></a>
             </div>
-            <%}%>
+            <% } %>
         </div>
       </div>
       <% } %>

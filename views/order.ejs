@@ -163,13 +163,14 @@
     </div>
       <div class="col-25">
         <div class="container">
-          <h4>Cart <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b><%= cart.length %></b></span></h4>
-          <% for(let i = 0; i < cart.length; i++){ %>
-            <p> Product
-              <%= i + 1 %> <span class="price">$<%= cart[i].price %></span></p>
-            <% } %>
-              <hr>
-              <p>Total <span class="price" style="color:black"><b>$<%= total %></b></span></p>
+        <h4>Cart <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b><%= cart.length %></b></span></h4>
+        <% for(let i = 0; i < cart.length; i++){ %>
+        <p>Product
+          <%= i + 1 %> <span class="price">$<%= cart[i].price %></span>
+        </p>
+        <% } %>
+        <hr>
+        <p>Total <span class="price" style="color:black"><b>$<%= total %></b></span></p>
         </div>
       </div>
   </div>
